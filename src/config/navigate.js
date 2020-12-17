@@ -5,7 +5,6 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import Home from "../views/home";
 const ComponentGenerator = (props) => {
-  console.log("com", props);
   let Provided = props.component;
   return (
     <>
@@ -29,12 +28,15 @@ export default class Navigate extends Component {
     return (
       <Switch>
         {this.routeData.map((routeInfo) => {
-          console.log("ri", routeInfo);
           return (
             <Route
               path={routeInfo.path}
               render={(props) => (
-                <ComponentGenerator {...props} {...routeInfo} />
+                <ComponentGenerator
+                  {...props}
+                  {...routeInfo}
+                  key={Math.random()}
+                />
               )}
             />
           );
